@@ -10,18 +10,29 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Feedbackform from './components/Feedbackform';
+import ShowData from './components/ShowData';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    children:[
+      {
+        path: "feedback",
+        element: <Feedbackform/>
+      },
+
+      {
+        path: "showdata",
+        element: <ShowData/>
+      },
+
+    ]
   },
 
-  {
-    path: "/feedback",
-    element: <Feedbackform/>
-  },
+
+ 
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
