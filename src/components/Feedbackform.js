@@ -7,7 +7,7 @@ import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 
 
-const Api="http://localhost:8080/feedback";
+const Api="http://ubuntu@ec2-13-58-234-56.us-east-2.compute.amazonaws.com:8080/feedback";
 
 
 const Feedbackform = () => {

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-const Api="http://localhost:8080/feedback";
+const Api="http://ubuntu@ec2-13-58-234-56.us-east-2.compute.amazonaws.com:8080/feedback";
 
 const ShowData = () => {
     const [data,setData]=useState([]);
@@ -13,6 +13,7 @@ const ShowData = () => {
     const handleDelete=(id)=>{
       axios.delete(`${Api}/${id}`).then(res=>{
         console.log(res.data);
+       
 
         setIsdeleted(!isDeleted);  // toggling
        
