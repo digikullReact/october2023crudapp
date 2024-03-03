@@ -3,6 +3,8 @@ import CustomForm from './common/CustomForm'
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
+
 import { useLocation } from 'react-router-dom';
 
 const Api="http://ubuntu@ec2-13-58-234-56.us-east-2.compute.amazonaws.com:8080/feedback";
@@ -61,6 +63,13 @@ const FeedBackEditComponent = () => {
           <Row>
 
 <Col md={{ span: 6, offset: 3 }}>
+
+<h2 style={{textAlign:"center"}}>Feedback form</h2>
+      {
+           alertData?<Alert key={alertData.variant} variant={alertData.variant}>
+          {alertData.text}
+         </Alert>:""
+      }
         <CustomForm formData={formData} handleClick={handleClick} handlechange={handlechange}/>
    
         </Col>
