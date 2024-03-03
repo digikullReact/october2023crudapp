@@ -4,11 +4,14 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Api="http://ubuntu@ec2-13-58-234-56.us-east-2.compute.amazonaws.com:8080/feedback";
 
 const ShowData = () => {
     const [data,setData]=useState([]);
     const [isDeleted,setIsdeleted]=useState(false);
+    const navigate = useNavigate();
+
 
     const handleDelete=(id)=>{
       axios.delete(`${Api}/${id}`).then(res=>{
@@ -20,6 +23,14 @@ const ShowData = () => {
               }).catch(err=>{
                 console.log(err);
               })
+
+    }
+
+    const handleEdit=(ele)=>{
+
+      // we will use useNavigate hook to redirect
+
+      navigate('/feedbackedit', { state:ele });
 
     }
 
@@ -87,7 +98,7 @@ useEffect(()=>{
           <td>{ele.email}</td>
           <td>{ele.rating}</td>
           <td>{ele.suggestion}</td>
-          <td> <Button variant="info">Edit</Button></td>
+          <td> <Button variant="info" onClick={()=>handleEdit(ele)}>Edit</Button></td>
           <td> <Button variant="danger" onClick={()=>handleDelete(ele.id)}>Delete</Button></td>
         </tr>
                     

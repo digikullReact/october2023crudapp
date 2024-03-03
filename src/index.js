@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Feedbackform from './components/Feedbackform';
 import ShowData from './components/ShowData';
+import FeedBackEditComponent from './components/FeedBackEditComponent';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         element: <ShowData/>
       },
 
+      {
+        path: "feedbackedit",
+        element: <FeedBackEditComponent/>
+      },
+
     ]
   },
 
@@ -37,9 +43,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+
     <RouterProvider router={router} />
-  </React.StrictMode>
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function
